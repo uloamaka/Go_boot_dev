@@ -29,24 +29,24 @@ func runTestCases() {
 			"Deborah",
 			18055558790,
 			`
-			====================================
-			Sender name: Deborah
-			Sender number: 18055558790
-			Sender rateLimit: 10000
-			====================================
-			`,
+====================================
+Sender name: Deborah
+Sender number: 18055558790
+Sender rateLimit: 10000
+====================================
+`,
 		},
 		{
 			5000,
 			"Jason",
 			18055558791,
 			`
-			====================================
-			Sender name: Jason
-			Sender number: 18055558791
-			Sender rateLimit: 5000
-			====================================
-			`,
+====================================
+Sender name: Jason
+Sender number: 18055558791
+Sender rateLimit: 5000
+====================================
+`,
 		},
 	}
 	if withSubmit {
@@ -56,12 +56,12 @@ func runTestCases() {
 				"Jill",
 				18055558792,
 				`
-				====================================
-				Sender name: Jill
-				Sender number: 18055558792
-				Sender rateLimit: 1000
-				====================================
-				`,
+====================================
+Sender name: Jill
+Sender number: 18055558792
+Sender rateLimit: 1000
+====================================
+`,
 			},
 		}...)}
 		passCount := 0
