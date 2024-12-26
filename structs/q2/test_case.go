@@ -51,6 +51,13 @@ func runTestCases() {
 					recipient: user{number: 19035558973},
 				}, false,
 			},
+			{
+				messageToSend{
+					message:   "you have to make money!",
+					sender:    user{name: "Ebite gift", number: 16545550987},
+					recipient: user{number: 19035558973},
+				}, false,
+			},
 		}...)
 	}
 
@@ -63,15 +70,15 @@ func runTestCases() {
 		if output != test.expected {
 			failCount++
 			fmt.Printf(`---------------------------------
-Test Failed. Inputs:
-* message:          %s
-* sender.name:      %s
-* sender.number:    %d
-* recipient.name:   %s
-* recipient.number: %d
-Expected:           %v
-Actual:             %v
-`,
+						Test Failed. Inputs:
+						* message:          %s
+						* sender.name:      %s
+						* sender.number:    %d
+						* recipient.name:   %s
+						* recipient.number: %d
+						Expected:           %v
+						Actual:             %v
+						`,
 				test.mToSend.message,
 				test.mToSend.sender.name,
 				test.mToSend.sender.number,
@@ -82,15 +89,15 @@ Actual:             %v
 		} else {
 			passCount++
 			fmt.Printf(`---------------------------------
-Test Passed. Inputs:
-* message:          %s
-* sender.name:      %s
-* sender.number:    %d
-* recipient.name:   %s
-* recipient.number: %d
-Expected:           %v
-Actual:             %v
-`,
+						Test Passed. Inputs:
+						* message:          %s
+						* sender.name:      %s
+						* sender.number:    %d
+						* recipient.name:   %s
+						* recipient.number: %d
+						Expected:           %v
+						Actual:             %v
+						`,
 				test.mToSend.message,
 				test.mToSend.sender.name,
 				test.mToSend.sender.number,
