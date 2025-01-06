@@ -1,0 +1,11 @@
+Assignment
+Implement the isValidPassword function by looping through each character in the password string. 
+Make sure the password is long enough and includes at least one uppercase letter and one digit.
+
+
+//-----------------------------------------------
+package main
+
+func isValidPassword(password string) bool {
+	// ?
+}
