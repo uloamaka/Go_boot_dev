@@ -5,6 +5,7 @@ import (
 )
 
 var withSubmit = true
+
 func runTestCases() {
 	messages := []Message{
 		TextMessage{"Alice", "Hello, World!"},
@@ -43,45 +44,46 @@ func runTestCases() {
 	passCount := 0
 	failCount := 0
 
-	for i, tc := range testCases {
-		t.Run(fmt.Sprintf("TestCase%d", i+1), func(t *testing.T) {
-			filtered := filterMessages(messages, tc.filterType)
-			if len(filtered) != tc.expectedCount {
-				failCount++
-				fmt.Printf(`---------------------------------
-Test Case %d - Filtering for %s
+	for idx, tc := range testCases {
+		filtered := filterMessages(messages, tc.filterType)
+
+		if len(filtered) != tc.expectedCount {
+			failCount++
+			fmt.Printf(`---------------------------------
+Test Case %d - Filtering for "%s"
 Expecting:  %d messages
 Actual:     %d messages
-Fail`, i+1, tc.filterType, tc.expectedCount, len(filtered))
+Fail
+`, idx+1, tc.filterType, tc.expectedCount, len(filtered))
+		} else {
+			passCount++
+			fmt.Printf(`---------------------------------
+Test Case %d - Filtering for "%s"
+Expecting:  %d messages
+Actual:     %d messages
+Pass
+`, idx+1, tc.filterType, tc.expectedCount, len(filtered))
+		}
+
+		for _, m := range filtered {
+			if m.Type() != tc.expectedType {
+				failCount++
+				fmt.Printf(`---------------------------------
+Test Case %d - Message Type Check
+Expecting:  "%s" message
+Actual:     "%s" message
+Fail
+`, idx+1, tc.expectedType, m.Type())
 			} else {
 				passCount++
 				fmt.Printf(`---------------------------------
-Test Case %d - Filtering for %s
-Expecting:  %d messages
-Actual:     %d messages
-Pass
-`, i+1, tc.filterType, tc.expectedCount, len(filtered))
-			}
-
-			for _, m := range filtered {
-				if m.Type() != tc.expectedType {
-					failCount++
-					t.Errorf(`---------------------------------
 Test Case %d - Message Type Check
-Expecting:  %s message
-Actual:     %s message
-Fail`, i+1, tc.expectedType, m.Type())
-				} else {
-					passCount++
-					fmt.Printf(`---------------------------------
-Test Case %d - Message Type Check
-Expecting:  %s message
-Actual:     %s message
+Expecting:  "%s" message
+Actual:     "%s" message
 Pass
-`, i+1, tc.expectedType, m.Type())
-				}
+`, idx+1, tc.expectedType, m.Type())
 			}
-		})
+		}
 	}
 
 	fmt.Println("---------------------------------")
