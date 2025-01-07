@@ -1,0 +1,14 @@
+Assignment
+Complete the printReports function.
+
+Call printCostReport once for each message. Pass in an anonymous function as the costCalculator that returns an int equal to twice the length of the input message.
+//-----------------------------------------------
+package main
+
+func getFormattedMessages(messages []string, formatter func) []string {
+	formattedMessages := []string{}
+	for _, message := range messages {
+		formattedMessages = append(formattedMessages, formatter(message))
+	}
+	return formattedMessages
+}
