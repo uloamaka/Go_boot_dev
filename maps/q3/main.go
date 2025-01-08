@@ -2,8 +2,8 @@ package main
 
 func getCounts(messagedUsers []string, validUsers map[string]int) {
 	for _, username := range messagedUsers { 
-		if value, ok := validUsers[username]; ok {
-			validUsers[username] = value + 1
+		if _, exists := validUsers[username]; exists {
+			validUsers[username]++
 		}
 	}
 }
