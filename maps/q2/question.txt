@@ -1,0 +1,24 @@
+Assignment
+It's important to keep up with privacy regulations and to respect our user's data. We need a function that will delete user records.
+
+Complete the deleteIfNecessary function.
+
+Check the scheduledForDeletion bool to determine if they are scheduled for deletion or not.
+
+If the user doesn't exist in the map, return the error not found.
+If they exist but aren't scheduled for deletion, return deleted as false with no errors.
+If they exist and are scheduled for deletion, return deleted as true with no errors and delete their record from the map.
+
+//--------------------------------------------------------
+package main
+package main
+
+func deleteIfNecessary(users map[string]user, name string) (deleted bool, err error) {
+	// ?
+}
+
+type user struct {
+	name                 string
+	number               int
+	scheduledForDeletion bool
+}
